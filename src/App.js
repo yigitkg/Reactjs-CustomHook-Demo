@@ -1,9 +1,12 @@
 import "./App.css";
+import useConnection from "./Hooks/useConnection";
 
 function App() {
+  const { status } = useConnection();
+
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello</h1>There
+      Connection Status = <strong>{status ? "Online" : "Offline"}</strong>
     </div>
   );
 }
