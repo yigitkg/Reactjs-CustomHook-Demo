@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createElement, useEffect, useState } from "react";
 
 const useConnection = () => {
   const [status, setStatus] = useState(true);
@@ -13,8 +13,24 @@ const useConnection = () => {
       events.forEach((event) => window.removeEventListener(event, eventHandle));
   }, []);
 
+  const Online = ({ children, as = "div", ...props }) => {
+    if (status) {
+      return createElement(as, props, children);
+    }
+    return null;
+  };
+
+  const Offline = ({ children, as = "div", ...props }) => {
+    if (!status) {
+      return createElement(as, props, children);
+    }
+    return null;
+  };
+
   return {
     status,
+    Online,
+    Offline,
   };
 };
 

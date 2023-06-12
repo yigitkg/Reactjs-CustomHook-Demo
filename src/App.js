@@ -2,11 +2,12 @@ import "./App.css";
 import useConnection from "./Hooks/useConnection";
 
 function App() {
-  const { status } = useConnection();
+  const { status, Online, Offline } = useConnection();
 
   return (
     <div>
-      Connection Status = <strong>{status ? "Online" : "Offline"}</strong>
+      <Online>You are now connected to the network!</Online>
+      <Offline>Check your internet connection!</Offline>
     </div>
   );
 }
