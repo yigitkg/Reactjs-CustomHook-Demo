@@ -26,17 +26,19 @@ function App() {
       <div>
         <Online>You are now connected to the network!</Online>
         <Offline>Check your internet connection!</Offline>
-        <StatusIndicator>{status ? "Online" : "Offline"}</StatusIndicator>
+        <div className="fixed top-0 left-0 w-full bg-gray-400 text-white p-4 text-sm text-center">
+          {status ? "Online" : "Offline"}
+        </div>
       </div>
       <div className="fixed top-0 left-0 w-full bg-green-400 text-white mt-12 p-4 text-sm text-center">
         <p>Level: {level}</p>
         {charging && <p>charging</p>}
       </div>
       <div className="fixed top-0 left-0 w-full flex flex-col items-center mt-[7.5rem]">
-        <CriticalBattery>
+        <div className="bg-red-600 text-white p-4 rounded">
           <p>Level: {level}</p>
           <p>not charging</p>
-        </CriticalBattery>
+        </div>
       </div>
       <div className="fixed top-0 left-0 w-full flex flex-col items-center mt-[13rem]">
         <button
