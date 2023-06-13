@@ -1,6 +1,42 @@
-# Getting Started with Create React App
+# React Custom Hooks Demo Powerd by Tailwind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a demonstration of three custom hooks built with React: `useBattery`, `useConnection`, and `useCopyToClipboard`. 
+
+## useBattery
+
+`useBattery` is a custom hook that provides the battery level and charging status of the device. 
+
+```jsx
+import useBattery from './useBattery';
+
+const { level, charging, CriticalBattery } = useBattery();
+```
+
+This hook listens for changes in the battery status and updates the state variables level and charging accordingly. If the battery level is critical (below 20%) and the device is not charging, a CriticalBattery component is rendered, providing a warning to the user.
+
+
+## useConnection
+
+`useConnection` is a custom hook for monitoring the online/offline status of the device.
+
+```jsx
+import useConnection from './useConnection';
+
+const { status, Online, Offline, StatusIndicator } = useConnection();
+```
+
+It adds event listeners for the online and offline events and updates the status state based on the device's connectivity. It provides Online and Offline components which only render their children when the device is online or offline, respectively.
+
+## useCopyToClipboard
+
+`useCopyToClipboard ` is a custom hook that copies the provided text to the clipboard.
+
+```jsx
+import useCopyToClipboard from './useCopyToClipboard';
+
+const { isCopied, error, copyToClipboard } = useCopyToClipboard();
+```
+It updates the isCopied state to true once the text is successfully copied to the clipboard. If there is any error during the process, it will be caught and stored in the error state.
 
 ## Available Scripts
 
@@ -14,10 +50,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
