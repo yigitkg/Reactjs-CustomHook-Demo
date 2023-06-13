@@ -1,4 +1,4 @@
-# React Custom Hooks Demo
+# React Custom Hooks Demo Powerd by Tailwind
 
 This repository contains a demonstration of three custom hooks built with React: `useBattery`, `useConnection`, and `useCopyToClipboard`. 
 
